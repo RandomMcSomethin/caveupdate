@@ -10,6 +10,7 @@ import com.random.caveupdate.blocks.CaveReedsBlock;
 import com.random.caveupdate.blocks.DimpleCapsBlock;
 import com.random.caveupdate.blocks.ModdedDoorBlock;
 import com.random.caveupdate.blocks.ModdedStairsBlock;
+import com.random.caveupdate.blocks.ModdedTrapdoorBlock;
 import com.random.caveupdate.blocks.PlumpHelmetsBlock;
 import com.random.caveupdate.blocks.RootsBlock;
 import com.random.caveupdate.entities.CavePigEntity;
@@ -95,6 +96,7 @@ public class CaveUpdate implements ModInitializer {
     public static final Block CAVE_REED_SLAB = new SlabBlock(FabricBlockSettings.of(Material.NETHER_WOOD, MaterialColor.NETHER).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD));
     public static final Block CAVE_REED_STAIRS = new ModdedStairsBlock(CAVE_REED_PLANKS.getDefaultState(), FabricBlockSettings.copy(CAVE_REED_PLANKS));
     public static final Block CAVE_REED_DOOR = new ModdedDoorBlock(FabricBlockSettings.copy(CAVE_REED_PLANKS));
+    public static final Block CAVE_REED_TRAPDOOR = new ModdedTrapdoorBlock(FabricBlockSettings.copy(CAVE_REED_PLANKS));
     
     public static final Item CAVE_CARROT_STEW = new MushroomStewItem(new Item.Settings().maxCount(1).group(ItemGroup.FOOD).food(CAVE_CARROT_STEW_FOOD));
     public static final Item PLUMP_HELMET_STEW = new MushroomStewItem(new Item.Settings().maxCount(1).group(ItemGroup.FOOD).food(PLUMP_HELMET_STEW_FOOD));
@@ -223,6 +225,7 @@ public class CaveUpdate implements ModInitializer {
 		RegistryMagiks.RegisterBlockWithItem("cave_reed_slab", CAVE_REED_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 		RegistryMagiks.RegisterBlockWithItem("cave_reed_stairs", CAVE_REED_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 		RegistryMagiks.RegisterBlockWithItem("cave_reed_door", CAVE_REED_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+		RegistryMagiks.RegisterBlockWithItem("cave_reed_trapdoor", CAVE_REED_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
 		
 		Registry.register(Registry.ITEM, new Identifier("caveupdate", "cave_pig_spawn_egg"), new SpawnEggItem(
                 CAVE_PIG, 0xB1B3AD, 0x3E4146, new Item.Settings().group(ItemGroup.MISC)));

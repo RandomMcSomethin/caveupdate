@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/template_trapdoor_bottom",
+  "textures": {
+    "texture": "caveupdate:block/cave_reed_trapdoor"
+  }
+}
