@@ -1,0 +1,24 @@
+{
+  "variants": {
+    "snowy=false": [
+      {
+        "model": "caveupdate:block/cave_grass"
+      },
+      {
+        "model": "caveupdate:block/cave_grass",
+        "y": 90
+      },
+      {
+        "model": "caveupdate:block/cave_grass",
+        "y": 180
+      },
+      {
+        "model": "caveupdate:block/cave_grass",
+        "y": 270
+      }
+    ],
+    "snowy=true": {
+      "model": "minecraft:block/grass_block_snow"
+    }
+  }
+}

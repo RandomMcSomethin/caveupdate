@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "caveupdate:dimple_cap"
+    }
+  ],
+  "result": {
+    "item": "minecraft:cyan_dye"
+  }
+}

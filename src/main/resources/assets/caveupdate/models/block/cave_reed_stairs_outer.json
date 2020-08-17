@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "caveupdate:block/cave_reed_planks",
+    "top": "caveupdate:block/cave_reed_planks",
+    "side": "caveupdate:block/cave_reed_planks"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "caveupdate:plump_helmet"
+  },
+  "result": "caveupdate:cooked_plump_helmet",
+  "experience": 0.35,
+  "cookingtime": 200
+}

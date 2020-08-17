@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "caveupdate:block/plump_helmets_stage2"
+  }
+}

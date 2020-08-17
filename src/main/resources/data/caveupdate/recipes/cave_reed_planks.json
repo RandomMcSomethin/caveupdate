@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##",
+    "##"
+  ],
+  "key": {
+    "#": {
+      "item": "caveupdate:cave_reed"
+    }
+  },
+  "result": {
+    "item": "caveupdate:cave_reed_planks",
+    "count": 4
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "caveupdate:item/plump_helmet_stew"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "caveupdate:block/cave_carrots_stage1"
+  }
+}

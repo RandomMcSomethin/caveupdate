@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "caveupdate:block/cave_reed_slab"
+    },
+    "type=double": {
+      "model": "caveupdate:block/cave_reed_planks"
+    },
+    "type=top": {
+      "model": "caveupdate:block/cave_reed_slab_top"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "caveupdate:cave_reed"
+    }
+  ],
+  "result": {
+    "item": "minecraft:stick",
+    "count": 2
+  }
+}

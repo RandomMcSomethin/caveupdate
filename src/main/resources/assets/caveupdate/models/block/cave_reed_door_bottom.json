@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom",
+  "textures": {
+    "top": "caveupdate:block/cave_reed_door_top",
+    "bottom": "caveupdate:block/cave_reed_door_bottom"
+  }
+}

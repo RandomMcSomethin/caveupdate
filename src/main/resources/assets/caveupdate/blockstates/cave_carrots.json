@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "caveupdate:block/cave_carrots_stage0"
+    },
+    "age=1": {
+      "model": "caveupdate:block/cave_carrots_stage0"
+    },
+    "age=2": {
+      "model": "caveupdate:block/cave_carrots_stage1"
+    },
+    "age=3": {
+      "model": "caveupdate:block/cave_carrots_stage1"
+    },
+    "age=4": {
+      "model": "caveupdate:block/cave_carrots_stage2"
+    },
+    "age=5": {
+      "model": "caveupdate:block/cave_carrots_stage2"
+    },
+    "age=6": {
+      "model": "caveupdate:block/cave_carrots_stage2"
+    },
+    "age=7": {
+      "model": "caveupdate:block/cave_carrots_stage3"
+    }
+  }
+}

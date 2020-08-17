@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "caveupdate:block/cave_reed_planks"
+  }
+}

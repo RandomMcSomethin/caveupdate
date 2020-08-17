@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "caveupdate:plump_helmet"
+    },
+    {
+      "item": "caveupdate:plump_helmet"
+    },
+    {
+      "item": "caveupdate:plump_helmet"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "caveupdate:plump_helmet_stew"
+  }
+}

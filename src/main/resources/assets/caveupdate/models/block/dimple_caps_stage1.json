@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/crop",
+  "textures": {
+    "crop": "caveupdate:block/dimple_caps_stage1"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "block.caveupdate.cave_carrots": "Cave Carrot",
+  "item.caveupdate.cave_carrot_stew": "Cave Carrot Stew",
+  "block.caveupdate.plump_helmets": "Plump Helmet Spawn",
+  "item.caveupdate.plump_helmet": "Plump Helmet",
+  "block.caveupdate.dimple_caps": "Dimple Cap Spawn",
+  "item.caveupdate.dimple_cap": "Dimple Cap",
+  "item.caveupdate.cooked_plump_helmet": "Cooked Plump Helmet",
+  "item.caveupdate.plump_helmet_stew": "Plump Helmet Stew",
+  "entity.caveupdate.cave_pig": "Cave Pig",
+  "item.caveupdate.cave_pig_spawn_egg": "Cave Pig Spawn Egg",
+  "block.caveupdate.cave_grass": "Cave Grass",
+  "block.caveupdate.cave_reeds": "Cave Reeds",
+  "block.caveupdate.cave_reed_planks": "Cave Reed Planks",
+  "block.caveupdate.cave_reed_door": "Cave Reed Door",
+  "block.caveupdate.cave_reed_slab": "Cave Reed Slab",
+  "block.caveupdate.cave_reed_stairs": "Cave Reed Stairs",
+  "block.caveupdate.cave_farmland": "Cave Farmland",
+  "block.caveupdate.natural_stone_wall": "Natural Stone Wall",
+  "block.caveupdate.roots": "Roots"
+ }
