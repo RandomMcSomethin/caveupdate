@@ -110,7 +110,7 @@ public class CaveUpdate implements ModInitializer {
     public static final EntityType<CavePigEntity> CAVE_PIG = Registry.register(
             Registry.ENTITY_TYPE,
             new Identifier("caveupdate", "cave_pig"),
-            FabricEntityTypeBuilder.create(SpawnGroup.MONSTER, CavePigEntity::new).dimensions(EntityDimensions.fixed(0.8f, 0.8f)).build()
+            FabricEntityTypeBuilder.create(SpawnGroup.AMBIENT, CavePigEntity::new).dimensions(EntityDimensions.fixed(0.8f, 0.8f)).build()
     );
     
     private static final Feature<DefaultFeatureConfig> STONE_SPELEOTHEM = Registry.register(
@@ -237,7 +237,7 @@ public class CaveUpdate implements ModInitializer {
 		for(Biome biome : Registry.BIOME) {
         	if (biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND) {
         		biome.getEntitySpawnList(CAVE_PIG.getSpawnGroup())
-            	.add(new Biome.SpawnEntry(CAVE_PIG, 15, 1, 4));
+            	.add(new Biome.SpawnEntry(CAVE_PIG, 150, 1, 4));
         	}
 		}
 
@@ -288,7 +288,7 @@ public class CaveUpdate implements ModInitializer {
         				new OreFeatureConfig(
         					    OreFeatureConfig.Target.NATURAL_STONE,
         					    Blocks.SNOW_BLOCK.getDefaultState(),
-        					    8 //Ore vein size
+        					    24 //Ore vein size
         				   )).createDecoratedFeature(
         					Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(
         					    64, //Number of veins per chunk
@@ -302,7 +302,7 @@ public class CaveUpdate implements ModInitializer {
         				new OreFeatureConfig(
         					    OreFeatureConfig.Target.NATURAL_STONE,
         					    Blocks.COARSE_DIRT.getDefaultState(),
-        					    8 //Ore vein size
+        					    24 //Ore vein size
         				   )).createDecoratedFeature(
         					Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(
         					    64, //Number of veins per chunk
@@ -316,7 +316,7 @@ public class CaveUpdate implements ModInitializer {
         				new OreFeatureConfig(
         					    OreFeatureConfig.Target.NATURAL_STONE,
         					    Blocks.SANDSTONE.getDefaultState(),
-        					    8 //Ore vein size
+        					    48 //Ore vein size
         				   )).createDecoratedFeature(
         					Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(
         					    64, //Number of veins per chunk
@@ -330,7 +330,7 @@ public class CaveUpdate implements ModInitializer {
         				new OreFeatureConfig(
         					    OreFeatureConfig.Target.NATURAL_STONE,
         					    Blocks.RED_SANDSTONE.getDefaultState(),
-        					    8 //Ore vein size
+        					    48 //Ore vein size
         				   )).createDecoratedFeature(
         					Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(
         					    64, //Number of veins per chunk
