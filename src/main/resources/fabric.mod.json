@@ -4,13 +4,13 @@
   "version": "${version}",
 
   "name": "Cave Update",
-  "description": "Attempts to overhaul cave generation.",
+  "description": "Aims to overhaul caves in the overworld.",
   "authors": [
     "Me!"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/cave-update-fabric",
+    "sources": "https://github.com/RandomMcSomethin/caveupdate"
   },
 
   "license": "Just don't redistribute my mod nor its contents without permission lol",
