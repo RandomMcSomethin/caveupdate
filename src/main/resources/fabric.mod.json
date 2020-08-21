@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Cave Update",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "description": "Attempts to overhaul cave generation.",
   "authors": [
     "Me!"
   ],
