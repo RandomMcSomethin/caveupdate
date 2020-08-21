@@ -19,6 +19,8 @@ public class CaveUpdateClient implements ClientModInitializer {
 		BlockRenderLayerMap.INSTANCE.putBlock(CaveUpdate.CAVE_REEDS, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(CaveUpdate.CAVE_REED_DOOR, RenderLayer.getCutout());
 		BlockRenderLayerMap.INSTANCE.putBlock(CaveUpdate.CAVE_REED_TRAPDOOR, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(CaveUpdate.GLOWING_GRASS, RenderLayer.getCutout());
+		BlockRenderLayerMap.INSTANCE.putBlock(CaveUpdate.TALL_GLOWING_GRASS, RenderLayer.getCutout());
 		
         EntityRendererRegistry.INSTANCE.register(CaveUpdate.CAVE_PIG, (dispatcher, context) -> {
             return new CavePigEntityRenderer(dispatcher);

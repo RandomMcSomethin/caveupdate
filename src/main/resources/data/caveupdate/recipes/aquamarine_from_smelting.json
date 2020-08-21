@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "caveupdate:aquamarine_ore"
+  },
+  "result": "caveupdate:aquamarine",
+  "experience": 1.0,
+  "cookingtime": 200
+}

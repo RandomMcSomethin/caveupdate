@@ -9,7 +9,10 @@ import com.random.caveupdate.blocks.CaveMushroomPlantBlock;
 import com.random.caveupdate.blocks.CaveReedsBlock;
 import com.random.caveupdate.blocks.DimpleCapsBlock;
 import com.random.caveupdate.blocks.ModdedDoorBlock;
+import com.random.caveupdate.blocks.ModdedOreBlock;
+import com.random.caveupdate.blocks.ModdedSeagrassBlock;
 import com.random.caveupdate.blocks.ModdedStairsBlock;
+import com.random.caveupdate.blocks.ModdedTallSeagrassBlock;
 import com.random.caveupdate.blocks.ModdedTrapdoorBlock;
 import com.random.caveupdate.blocks.PlumpHelmetsBlock;
 import com.random.caveupdate.blocks.RootsBlock;
@@ -18,12 +21,17 @@ import com.random.caveupdate.feature.AndesiteFlatsFeature;
 import com.random.caveupdate.feature.CaveChestFeature;
 import com.random.caveupdate.feature.CaveGrassPatchesFeature;
 import com.random.caveupdate.feature.CaveVinesFeature;
+import com.random.caveupdate.feature.CavernWatersFeature;
 import com.random.caveupdate.feature.DioritePlateauFeature;
 import com.random.caveupdate.feature.GraniteCanyonFeature;
 import com.random.caveupdate.feature.PebblesFeature;
 import com.random.caveupdate.feature.RootsFeature;
 import com.random.caveupdate.feature.StoneSpeleothemFeature;
+import com.random.caveupdate.helper.EventListeners;
+import com.random.caveupdate.helper.ModPredicates;
 import com.random.caveupdate.helper.RegistryMagiks;
+import com.random.caveupdate.items.UsableItem;
+import com.random.caveupdate.items.UsableItem.UseEvents;
 import com.random.caveupdate.mixin.SpawnRestrictionAccessor;
 
 import net.fabricmc.api.ModInitializer;
@@ -34,6 +42,8 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.FenceBlock;
+import net.minecraft.block.FenceGateBlock;
 import net.minecraft.block.Material;
 import net.minecraft.block.MaterialColor;
 import net.minecraft.block.SlabBlock;
@@ -91,18 +101,26 @@ public class CaveUpdate implements ModInitializer {
     public static final Block DIMPLE_CAPS = new DimpleCapsBlock(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly());
     public static final Block PLUMP_HELMET_WILD = new CaveMushroomPlantBlock(FabricBlockSettings.of(Material.PLANT).noCollision().breakInstantly());
     public static final Block CAVE_REEDS = new CaveReedsBlock(FabricBlockSettings.of(Material.PLANT).noCollision().ticksRandomly().breakInstantly().sounds(BlockSoundGroup.GRASS));
+    public static final Block AQUAMARINE_ORE = new ModdedOreBlock(FabricBlockSettings.of(Material.STONE).requiresTool().strength(3.0F, 3.0F), 3, 7);
+    public static final Block AQUAMARINE_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).requiresTool().strength(5.0F, 6.0F).sounds(BlockSoundGroup.METAL));
+    public static final Block GLOWING_GRASS = new ModdedSeagrassBlock(FabricBlockSettings.of(Material.REPLACEABLE_UNDERWATER_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).lightLevel(8).postProcess(ModPredicates::always).emissiveLighting(ModPredicates::always));
+    public static final Block TALL_GLOWING_GRASS = new ModdedTallSeagrassBlock(FabricBlockSettings.of(Material.REPLACEABLE_UNDERWATER_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.WET_GRASS).lightLevel(12).postProcess(ModPredicates::always).emissiveLighting(ModPredicates::always));
     
     public static final Block CAVE_REED_PLANKS = new Block(FabricBlockSettings.of(Material.NETHER_WOOD, MaterialColor.PINK).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD));
     public static final Block CAVE_REED_SLAB = new SlabBlock(FabricBlockSettings.of(Material.NETHER_WOOD, MaterialColor.NETHER).strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD));
     public static final Block CAVE_REED_STAIRS = new ModdedStairsBlock(CAVE_REED_PLANKS.getDefaultState(), FabricBlockSettings.copy(CAVE_REED_PLANKS));
-    public static final Block CAVE_REED_DOOR = new ModdedDoorBlock(FabricBlockSettings.copy(CAVE_REED_PLANKS));
-    public static final Block CAVE_REED_TRAPDOOR = new ModdedTrapdoorBlock(FabricBlockSettings.copy(CAVE_REED_PLANKS));
+    public static final Block CAVE_REED_DOOR = new ModdedDoorBlock(FabricBlockSettings.copy(CAVE_REED_PLANKS).nonOpaque());
+    public static final Block CAVE_REED_TRAPDOOR = new ModdedTrapdoorBlock(FabricBlockSettings.copy(CAVE_REED_PLANKS).nonOpaque());
+    public static final Block CAVE_REED_FENCE = new FenceBlock(FabricBlockSettings.copy(CAVE_REED_PLANKS));
+    public static final Block CAVE_REED_GATE = new FenceGateBlock(FabricBlockSettings.copy(CAVE_REED_PLANKS));
     
     public static final Item CAVE_CARROT_STEW = new MushroomStewItem(new Item.Settings().maxCount(1).group(ItemGroup.FOOD).food(CAVE_CARROT_STEW_FOOD));
     public static final Item PLUMP_HELMET_STEW = new MushroomStewItem(new Item.Settings().maxCount(1).group(ItemGroup.FOOD).food(PLUMP_HELMET_STEW_FOOD));
     public static final Item COOKED_PLUMP_HELMET = new Item(new Item.Settings().group(ItemGroup.FOOD).food(COOKED_PLUMP_HELMET_FOOD));
     public static final Item PLUMP_HELMET = new Item(new Item.Settings().group(ItemGroup.FOOD).food(FoodComponents.POTATO));
     public static final Item DIMPLE_CAP = new Item(new Item.Settings().group(ItemGroup.MISC).food(FoodComponents.SPIDER_EYE));
+    public static final Item AQUAMARINE = new Item(new Item.Settings().group(ItemGroup.MISC));
+    public static final Item TOTEM_OF_RECALL = new UsableItem(new Item.Settings().group(ItemGroup.TOOLS), UseEvents.RECALL);
     
     public static final RandomPatchFeatureConfig CAVE_REEDS_CONFIG = (new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(CAVE_REEDS.getDefaultState()), new ColumnPlacer(2, 2))).tries(20).spreadX(4).spreadY(0).spreadZ(4).cannotProject().build();
     
@@ -138,6 +156,11 @@ public class CaveUpdate implements ModInitializer {
     		Registry.FEATURE,
     		new Identifier("caveupdate", "diorite_plateau"),
     		new DioritePlateauFeature(DefaultFeatureConfig.CODEC)
+    	);
+    private static final Feature<DefaultFeatureConfig> CAVERN_WATERS = Registry.register(
+    		Registry.FEATURE,
+    		new Identifier("caveupdate", "cavern_waters"),
+    		new CavernWatersFeature(DefaultFeatureConfig.CODEC)
     	);
     
     private static final Feature<OreFeatureConfig> CAVE_GRASS_PATCHES = Registry.register(
@@ -198,6 +221,7 @@ public class CaveUpdate implements ModInitializer {
             return ActionResult.PASS;
         });
 		
+        //Block/item registry
 		Registry.register(Registry.BLOCK, new Identifier("caveupdate", "roots"), ROOTS);
 		Registry.register(Registry.BLOCK, new Identifier("caveupdate", "cave_grass"), CAVE_GRASS);
 		Registry.register(Registry.BLOCK, new Identifier("caveupdate", "cave_farmland"), CAVE_FARMLAND);
@@ -220,12 +244,25 @@ public class CaveUpdate implements ModInitializer {
 		Registry.register(Registry.ITEM, new Identifier("caveupdate", "dimple_cap_spawn"), new BlockItem(DIMPLE_CAPS, new Item.Settings().group(ItemGroup.MISC)));
 		Registry.register(Registry.ITEM, new Identifier("caveupdate", "dimple_cap"), DIMPLE_CAP);
 		Registry.register(Registry.ITEM, new Identifier("caveupdate", "cave_reed"), new BlockItem(CAVE_REEDS, new Item.Settings().group(ItemGroup.MISC).fireproof()));
+		RegistryMagiks.RegisterBlockWithItem("glowing_grass", GLOWING_GRASS, new Item.Settings().group(ItemGroup.DECORATIONS));
+		Registry.register(Registry.BLOCK, new Identifier("caveupdate", "tall_glowing_grass"), TALL_GLOWING_GRASS);
 		
+		//Cave reed variants
 		RegistryMagiks.RegisterBlockWithItem("cave_reed_planks", CAVE_REED_PLANKS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 		RegistryMagiks.RegisterBlockWithItem("cave_reed_slab", CAVE_REED_SLAB, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 		RegistryMagiks.RegisterBlockWithItem("cave_reed_stairs", CAVE_REED_STAIRS, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
 		RegistryMagiks.RegisterBlockWithItem("cave_reed_door", CAVE_REED_DOOR, new Item.Settings().group(ItemGroup.REDSTONE));
 		RegistryMagiks.RegisterBlockWithItem("cave_reed_trapdoor", CAVE_REED_TRAPDOOR, new Item.Settings().group(ItemGroup.REDSTONE));
+		RegistryMagiks.RegisterBlockWithItem("cave_reed_fence", CAVE_REED_FENCE, new Item.Settings().group(ItemGroup.DECORATIONS));
+		RegistryMagiks.RegisterBlockWithItem("cave_reed_fence_gate", CAVE_REED_GATE, new Item.Settings().group(ItemGroup.REDSTONE));
+		
+		//Ores and stuff
+		RegistryMagiks.RegisterBlockWithItem("aquamarine_ore", AQUAMARINE_ORE, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+		RegistryMagiks.RegisterBlockWithItem("aquamarine_block", AQUAMARINE_BLOCK, new Item.Settings().group(ItemGroup.BUILDING_BLOCKS));
+		Registry.register(Registry.ITEM, new Identifier("caveupdate", "aquamarine"), AQUAMARINE);
+		
+		//Unique items
+		//Registry.register(Registry.ITEM, new Identifier("caveupdate", "totem_of_recall"), TOTEM_OF_RECALL);
 		
 		Registry.register(Registry.ITEM, new Identifier("caveupdate", "cave_pig_spawn_egg"), new SpawnEggItem(
                 CAVE_PIG, 0xB1B3AD, 0x3E4146, new Item.Settings().group(ItemGroup.MISC)));
@@ -387,6 +424,21 @@ public class CaveUpdate implements ModInitializer {
         					    48 //Max y level
         				))));
         	}
+        	//Aquamarine
+        	if (biome.getCategory() == Biome.Category.OCEAN) {
+        		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Feature.ORE.configure(
+        				new OreFeatureConfig(
+        					    OreFeatureConfig.Target.NATURAL_STONE,
+        					    CaveUpdate.AQUAMARINE_ORE.getDefaultState(),
+        					    2 //Ore vein size
+        				   )).createDecoratedFeature(
+        					Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(
+        					    2, //Number of veins per chunk
+        					    0, //Bottom Offset
+        					    5, //Min y level
+        					    64 //Max y level
+        				))));
+        	}
         }
         
       //Cave decor/biomes
@@ -416,6 +468,10 @@ public class CaveUpdate implements ModInitializer {
 	    				.configure(new DefaultFeatureConfig())
 	    				.createDecoratedFeature(Decorator.CHANCE_RANGE.configure(new ChanceRangeDecoratorConfig(0.1F, 5, 0, 48)))
 	    			); 
+	        	biome.addFeature(GenerationStep.Feature.LAKES,	CAVERN_WATERS
+	    				.configure(new DefaultFeatureConfig())
+	    				.createDecoratedFeature(Decorator.LAVA_LAKE.configure(new ChanceDecoratorConfig(100)))
+	    			); 
 	        	biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES,
 	            	    CAVE_GRASS_PATCHES.configure(
 	    			new OreFeatureConfig(
@@ -437,6 +493,10 @@ public class CaveUpdate implements ModInitializer {
 	        			.createDecoratedFeature(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(4000, 0, 0, 48))));
         	}
 		}
+        
+        // Loot
+        EventListeners.injectLoot();
+        
 		System.out.println("Hello Fabric world!");
 	}
 }

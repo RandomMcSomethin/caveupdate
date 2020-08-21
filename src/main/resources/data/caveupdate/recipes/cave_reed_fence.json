@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_fence",
+  "pattern": [
+    "W#W",
+    "W#W"
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "W": {
+      "item": "caveupdate:cave_reed_planks"
+    }
+  },
+  "result": {
+    "item": "caveupdate:cave_reed_fence",
+    "count": 3
+  }
+}

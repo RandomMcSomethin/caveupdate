@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "caveupdate:block/tall_glowing_grass_bottom"
+    },
+    "half=upper": {
+      "model": "caveupdate:block/tall_glowing_grass_top"
+    }
+  }
+}

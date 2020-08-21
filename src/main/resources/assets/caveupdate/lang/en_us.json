@@ -16,7 +16,13 @@
   "block.caveupdate.cave_reed_trapdoor": "Cave Reed Trapdoor",
   "block.caveupdate.cave_reed_slab": "Cave Reed Slab",
   "block.caveupdate.cave_reed_stairs": "Cave Reed Stairs",
+  "block.caveupdate.cave_reed_fence": "Cave Reed Fence",
+  "block.caveupdate.cave_reed_fence_gate": "Cave Reed Fence Gate",
   "block.caveupdate.cave_farmland": "Cave Farmland",
   "block.caveupdate.natural_stone_wall": "Natural Stone Wall",
-  "block.caveupdate.roots": "Roots"
+  "block.caveupdate.aquamarine_ore": "Aquamarine Ore",
+  "block.caveupdate.aquamarine_block": "Block of Aquamarine",
+  "item.caveupdate.aquamarine": "Aquamarine",
+  "block.caveupdate.roots": "Roots",
+  "block.caveupdate.glowing_grass": "Glowing Grass"
  }

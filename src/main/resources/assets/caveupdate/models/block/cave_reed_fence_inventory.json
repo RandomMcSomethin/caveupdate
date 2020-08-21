@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/fence_inventory",
+  "textures": {
+    "texture": "caveupdate:block/cave_reed_planks"
+  }
+}

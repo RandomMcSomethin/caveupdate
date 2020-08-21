@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "wooden_door",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "caveupdate:cave_reed_planks"
+    }
+  },
+  "result": {
+    "item": "caveupdate:cave_reed_trapdoor",
+    "count": 2
+  }
+}

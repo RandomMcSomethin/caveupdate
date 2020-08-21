@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "caveupdate:aquamarine_block"
+    }
+  ],
+  "result": {
+    "item": "caveupdate:aquamarine",
+    "count": 9
+  }
+}
