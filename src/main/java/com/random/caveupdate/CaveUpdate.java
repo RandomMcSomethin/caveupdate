@@ -70,6 +70,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.Biome;
@@ -271,38 +272,32 @@ public class CaveUpdate implements ModInitializer {
 		FabricDefaultAttributeRegistry.register(CAVE_PIG, CavePigEntity.createMobAttributes());
         
 		//Spawning
-		for(Biome biome : Registry.BIOME) {
+		for(Biome biome : BuiltinRegistries.BIOME) {
         	if (biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND) {
         		biome.getEntitySpawnList(CAVE_PIG.getSpawnGroup())
             	.add(new Biome.SpawnEntry(CAVE_PIG, 150, 1, 4));
         	}
 		}
 
-        for(Biome biome : Registry.BIOME) {
+        for(Biome biome : BuiltinRegistries.BIOME) {
         	if (biome.getCategory() != Biome.Category.NETHER && biome.getCategory() != Biome.Category.THEEND) {
 	        	biome.addFeature(GenerationStep.Feature.UNDERGROUND_STRUCTURES, 
-	            		Feature.MONSTER_ROOM.configure(FeatureConfig.DEFAULT).createDecoratedFeature
-	            		(Decorator.DUNGEONS.configure(new ChanceDecoratorConfig(2)))
+	            		Feature.MONSTER_ROOM.configure(FeatureConfig.DEFAULT).decorate
+	            		(Decorator.DEPTH_AVERAGE(new ChanceDecoratorConfig(2)))
 	            	);
         	}
 		}
         
         //Underground biomes
         //Registry.BIOME.forEach(CaveUpdate::registerJungleFeatures);
-        for(Biome biome : Registry.BIOME) {
+        for(Biome biome : BuiltinRegistries.BIOME) {
         	if (biome.getCategory() == Biome.Category.JUNGLE) {
-        		biome.addFeature(GenerationStep.Feature.UNDERGROUND_ORES, Feature.ORE.configure(
+        		(GenerationStep.Feature.UNDERGROUND_ORES, Feature.ORE.configure(
         				new OreFeatureConfig(
-        					    OreFeatureConfig.Target.NATURAL_STONE,
+        					    OreFeatureConfig.Rules.BASE_STONE_OVERWORLD,
         					    Blocks.MOSSY_COBBLESTONE.getDefaultState(),
         					    8 //Ore vein size
-        				   )).createDecoratedFeature(
-        					Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(
-        					    64, //Number of veins per chunk
-        					    24, //Bottom Offset
-        					    48, //Min y level
-        					    255 //Max y level
-        				))));
+        				   )).method_30377(16).spreadHorizontally().repeat(8);
         		biome.addFeature(GenerationStep.Feature.UNDERGROUND_DECORATION,	CAVE_VINES
         				.configure(new DefaultFeatureConfig())
         				.createDecoratedFeature(Decorator.COUNT_RANGE.configure(new RangeDecoratorConfig(3500, 0, 0, 255)))
